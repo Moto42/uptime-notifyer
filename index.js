@@ -13,11 +13,7 @@ const fs            = require('fs');
 const _data         = require('./lib/data');
 
 
-//TESTING
-// @TODO  delete this
-_data.delete('test','newFile',function(err){
-	console.log('this was the error',err);
-});
+
 
 // Instantiating the HTTP server
 const httpServer = http.createServer( (req, res) =>{
