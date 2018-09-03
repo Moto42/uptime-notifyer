@@ -11,6 +11,7 @@ environments.staging = {
 	envName : 'staging',
 	'httpPort' : 3000,
 	'httpsPort':3001,
+	hashingSecret: 'thisIsASecret',
 };
 
 
@@ -19,6 +20,7 @@ environments.production = {
 	'envName': 'production',
 	'httpPort' : 5000,
 	'httpsPort':5001,
+	hashingSecret: 'thisIsAlsoASecret',
 };
 
 console.log('NODE_ENV: ',process.env.NODE_ENV,)
