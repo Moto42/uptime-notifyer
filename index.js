@@ -1,14 +1,51 @@
 //  Primary file for the API
 
-// Depencies
-const http = require('http');
 
-const url  = require('url');
+
+
+// Dependencies
+const http          = require('http');
+const https         = require('https');
+const url           = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
-const config = require('./config');
+const config        = require('./config');
+const fs            = require('fs');
+const _data         = require('./lib/data');
 
-// The server should respond to all request with a string
-const server = http.createServer( (req, res) =>{
+
+//TESTING
+// @TODO  delete this
+_data.delete('test','newFile',function(err){
+	console.log('this was the error',err);
+});
+
+// Instantiating the HTTP server
+const httpServer = http.createServer( (req, res) =>{
+	unifiedServer(req, res);
+} );
+
+// Start the HTTP server, and have it listen on env defined port
+httpServer.listen(config.httpPort, () => {
+	console.log(`The HTTP server is listening on port ${config.httpPort}`);
+} );
+
+// Instantiating the HTTPS server
+const httpsServerOptions = {
+	'key' : fs.readFileSync('./ssl/key.pem'),
+	'cert' : fs.readFileSync('./ssl/cert.pem'),
+};
+const httpsServer = https.createServer(httpsServerOptions,(req, res) =>{
+	unifiedServer(req, res);
+} );
+
+// Start the HTTPS server, and have it listen on env defined port
+httpsServer.listen(config.httpsPort, () => {
+	console.log(`The HTTPSserver is listening on port ${config.httpsPort}`);
+} );
+
+
+// all the server logic for both the http and https server
+const unifiedServer = (req, res) =>{
 
 	//get the url and parse it
 	const parsedURL = url.parse(req.url, true);
@@ -71,30 +108,25 @@ const server = http.createServer( (req, res) =>{
 		});
 
 	});
-
-} );
-
-// Start the server, and have it listen on poer 3000
-server.listen(config.port, () => {
-	console.log(`The server is listening on port ${config.port} using in ${config.envName} mode. `);
-} );
+}
 
 
 //Define the handlers
 const handlers = {};
 
-//Sample handler
-handlers.sample =(data,callback) => {
-	// callback a http satus code and payload object
-	callback(406, {'name': 'sample handler'});
-};
+// Ping Handler
+handlers.ping = (data,callback)=>{
+	callback(200,{'res':"pong"});
+}
 
+// 404 handler
 handlers.notFound = (data, callback) => {
 	callback(404);
 };
 
-// Defind a reqst router
+// Define a request router
 const router = {
-	'sample': handlers.sample,
+	'sample' : handlers.sample,
+	'ping': handlers.ping,
 };
 

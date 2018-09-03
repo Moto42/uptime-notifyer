@@ -10,7 +10,7 @@ const environments = {
 environments.staging = {
 	envName : 'staging',
 	'httpPort' : 3000,
-		'httpsPort':3001,
+	'httpsPort':3001,
 };
 
 
