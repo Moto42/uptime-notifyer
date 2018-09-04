@@ -13,7 +13,8 @@ const config        = require('./config');
 const handlers      = require('./lib/handlers.js');
 const helpers       = require('./lib/helpers.js');
 
-
+// TESTING
+//@TODO delete this
 
 
 // Instantiating the HTTP server
@@ -29,7 +30,7 @@ httpServer.listen(config.httpPort, () => {
 // Instantiating the HTTPS server
 const httpsServerOptions = {
 	'key' : fs.readFileSync('./ssl/key.pem'),
-	'cert' : fs.readFileSync('./ssl/cert.pem'),
+	'cert': fs.readFileSync('./ssl/cert.pem'),
 };
 const httpsServer = https.createServer(httpsServerOptions,(req, res) =>{
 	unifiedServer(req, res);
@@ -76,11 +77,11 @@ const unifiedServer = (req, res) =>{
 
 		//construct data object to send to handler
 		const data = {
-			'trimmedPath' : trimmedPath,
+			'trimmedPath'      : trimmedPath,
 			'queryStringObject': queryStringObject,
-			'method': method,
-			'headers': headers,
-			'payload': helpers.parseJsonToObject(buffer),
+			'method'           : method,
+			'headers'          : headers,
+			'payload'          : helpers.parseJsonToObject(buffer),
 		}
 
 		// route request to hander specified in the router
@@ -110,7 +111,8 @@ const unifiedServer = (req, res) =>{
 
 // Define a request router
 const router = {
-	'ping' : handlers.ping,
-	'users': handlers.users,
+	'ping'  :  handlers.ping,
+	'users' : handlers.users,
+	'tokens': handlers.tokens,
 };
 
