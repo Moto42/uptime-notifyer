@@ -8,19 +8,21 @@ const environments = {
 
 // staging (defaule entrionments)
 environments.staging = {
-	envName : 'staging',
-	'httpPort' : 3000,
-	'httpsPort':3001,
+	envName      : 'staging',
+	'httpPort'   : 3000,
+	'httpsPort'  : 3001,
 	hashingSecret: 'thisIsASecret',
+	maxChecks    : 5,
 };
 
 
 // production envrionment;
 environments.production = {
-	'envName': 'production',
-	'httpPort' : 5000,
-	'httpsPort':5001,
+	'envName'    : 'production',
+	'httpPort'   : 5000,
+	'httpsPort'  : 5001,
 	hashingSecret: 'thisIsAlsoASecret',
+	maxChecks    : 5,
 };
 
 console.log('NODE_ENV: ',process.env.NODE_ENV,)
