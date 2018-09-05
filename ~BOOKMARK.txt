@@ -1,2 +1,2 @@
-Lesson: 26: Service4 CHecks
-Timestamp: 23:42
+Lesson: 27 Connecting to an API
+Begining
