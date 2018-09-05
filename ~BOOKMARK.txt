@@ -1,2 +1,2 @@
 Lesson: 27 Connecting to an API
-Begining
+Finished lesson, but his version (and mine) produce 400 "Bad request" errors.

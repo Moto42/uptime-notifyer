@@ -13,8 +13,13 @@ const config        = require('./config');
 const handlers      = require('./lib/handlers.js');
 const helpers       = require('./lib/helpers.js');
 
+
 // TESTING
 //@TODO delete this
+const
+helpers.sendTwilioSMS('9036177858','Hello World',function(err){
+	console.log('there was an error:' ,err);
+});
 
 
 // Instantiating the HTTP server

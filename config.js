@@ -1,3 +1,6 @@
+// Dependencies
+const secure = require('./secureData');
+
 // create and export configuration variables
 
 // container for all the environments
@@ -13,6 +16,11 @@ environments.staging = {
 	'httpsPort'  : 3001,
 	hashingSecret: 'thisIsASecret',
 	maxChecks    : 5,
+	'twilio'     : {
+		'accountSID' : secure.twilioTest.accountSID,
+		'authToken'  : secure.twilioTest.authToken,
+		'fromPhone'  : secure.twilioTest.fromPhone,
+	}
 };
 
 
@@ -23,9 +31,13 @@ environments.production = {
 	'httpsPort'  : 5001,
 	hashingSecret: 'thisIsAlsoASecret',
 	maxChecks    : 5,
+	'twilio'     : {
+		'accountSID' : secure.twilioTest.accountSID,
+		'authToken'  : secure.twilioTest.authToken,
+		'fromPhone'  : secure.twilioTest.fromPhone,
+	}
 };
 
-console.log('NODE_ENV: ',process.env.NODE_ENV,)
 
 //determine with environment was passed as a command-line argument
 const currentEnvironment = typeof(process.env.NODE_ENV) == 'string' ? process.env.NODE_ENV.toLowerCase() : '';
