@@ -4,9 +4,7 @@ const secure = require('./secureData');
 // create and export configuration variables
 
 // container for all the environments
-const environments = {
-
-};
+const environments = {};
 
 
 // staging (defaule entrionments)
@@ -32,9 +30,9 @@ environments.production = {
 	hashingSecret: 'thisIsAlsoASecret',
 	maxChecks    : 5,
 	'twilio'     : {
-		'accountSID' : secure.twilioTest.accountSID,
-		'authToken'  : secure.twilioTest.authToken,
-		'fromPhone'  : secure.twilioTest.fromPhone,
+		'accountSID' : secure.twilio.accountSID,
+		'authToken'  : secure.twilio.authToken,
+		'fromPhone'  : secure.twilio.fromPhone,
 	}
 };
 
