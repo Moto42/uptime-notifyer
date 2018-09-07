@@ -1,2 +1,4 @@
-Lesson: 27 Connecting to an API
-Finished lesson, but his version (and mine) produce 400 "Bad request" errors.
+Lesson: 28 Background workers
+4 minutes left to go.
+
+Currently getting error : Check is improperly formated.
