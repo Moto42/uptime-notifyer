@@ -15,6 +15,8 @@ const app = {};
 //Init function
 app.init = function(){
 
+	process.title = "Uptime Notification Server";
+
 	// start the server
 	server.init();
 
