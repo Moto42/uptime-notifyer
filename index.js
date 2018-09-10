@@ -4,9 +4,6 @@
 const server = require('./lib/server');
 const workers = require('./lib/workers');
 
-//Testing 
-const _data =require('./lib/data');
-_data.list('checks',console.log);
 
 
 //declare the app
