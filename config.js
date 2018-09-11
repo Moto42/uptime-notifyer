@@ -6,7 +6,6 @@ const secure = require('./secureData');
 // container for all the environments
 const environments = {};
 
-
 // staging (defaule entrionments)
 environments.staging = {
 	envName      : 'staging',
@@ -18,6 +17,12 @@ environments.staging = {
 		'accountSID' : secure.twilioTest.accountSID,
 		'authToken'  : secure.twilioTest.authToken,
 		'fromPhone'  : secure.twilioTest.fromPhone,
+	},
+	'templateGlobals' :{
+		'appName' : 'UptimeChecker',
+		'companyName' : 'NotARealCompany, Inc',
+		'yearCreate' : '2018',
+		'baseUrl' : 'http://localhost:3000/'
 	}
 };
 
@@ -33,8 +38,17 @@ environments.production = {
 		'accountSID' : secure.twilio.accountSID,
 		'authToken'  : secure.twilio.authToken,
 		'fromPhone'  : secure.twilio.fromPhone,
+	},
+	'templateGlobals' :{
+		'appName' : 'UptimeChecker',
+		'companyName' : 'NotARealCompany, Inc',
+		'yearCreate' : '2018',
+		'baseUrl' : 'http://localhost:5000/'
 	}
 };
+
+
+
 
 
 //determine with environment was passed as a command-line argument
