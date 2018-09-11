@@ -21,7 +21,7 @@ environments.staging = {
 	'templateGlobals' :{
 		'appName' : 'UptimeChecker',
 		'companyName' : 'NotARealCompany, Inc',
-		'yearCreate' : '2018',
+		'yearCreated' : '2018',
 		'baseUrl' : 'http://localhost:3000/'
 	}
 };
@@ -42,7 +42,7 @@ environments.production = {
 	'templateGlobals' :{
 		'appName' : 'UptimeChecker',
 		'companyName' : 'NotARealCompany, Inc',
-		'yearCreate' : '2018',
+		'yearCreated' : '2018',
 		'baseUrl' : 'http://localhost:5000/'
 	}
 };
