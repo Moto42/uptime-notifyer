@@ -1,8 +1,9 @@
 //  Primary file for the API
 
 //demendencies
-const server = require('./lib/server');
+const server  = require('./lib/server');
 const workers = require('./lib/workers');
+const cli     = require('./lib/cli');
 
 
 
@@ -19,6 +20,9 @@ app.init = function(){
 
 	// start the workers
 	workers.init();
+
+	// Start the CLI, but make sure it starts last
+	setTimeout(function(){ cli.init()	},50);
 };
 
 //Execute
